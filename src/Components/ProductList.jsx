@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from './CartSlice';
 
 const ProductList = () => {
+const dispatch = useDispatch();
+const cartItems = useSelector(state => state.cart.cartItems); // Get cart items globally
 
   const products = [
     { id: 1, name: 'Product A', price: 60 },
@@ -11,8 +13,6 @@ const ProductList = () => {
     { id: 3, name: 'Product C', price: 30 },
   ];
 
-  const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.cartItems); // Get cart items globally
 
   const handleAddToCart = product => {
     dispatch(addItemToCart(product)); // Add product to cart
